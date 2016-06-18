@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.balysv.materialripple.MaterialRippleLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/ImageDarkRippleStyle">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_8">
+        <ImageView
+            android:id="@+id/iv_item_recyclerview"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_restore_black_24dp"/>
+        <TextView
+            android:id="@+id/tv_item_recyclerview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_item_recyclerview"
+            android:layout_toRightOf="@id/iv_item_recyclerview"
+            android:layout_marginLeft="@dimen/margin_8"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_size_5"
+            android:text="Sample"/>
+        <TextView
+            android:id="@+id/tv_item_recyclerview_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/iv_item_recyclerview"
+            android:layout_alignBottom="@id/iv_item_recyclerview"
+            android:layout_marginLeft="@dimen/margin_8"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_size_4"
+            android:text="Sample"/>
+    </RelativeLayout>
+</com.balysv.materialripple.MaterialRippleLayout>

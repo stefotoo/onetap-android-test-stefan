@@ -1,0 +1,18 @@
+<resources>
+    <!--Main-->
+    <string name="app_name">TestApp</string>
+
+    <!--Tabs-->
+    <string name="tab_recent">Recent</string>
+    <string name="tab_all">All</string>
+    <string name="tab_processing">Processing</string>
+
+    <!--Controls-->
+    <string name="tv_fragment_main_first_title">In 2016 you\'re on track to save</string>
+    <string name="tv_fragment_main_first_subtitle">$207,825</string>
+    <string name="tv_fragment_main_second_title">February tax bill has been cut by</string>
+    <string name="tv_fragment_main_second_subtitle">$7,402</string>
+    <string name="tv_item_recyclerview_title">%s title</string>
+    <string name="tv_item_recyclerview_content">%s content</string>
+
+</resources>

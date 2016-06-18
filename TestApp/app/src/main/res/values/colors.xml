@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basic colors -->
+    <color name="primary">#3F51B5</color>
+    <color name="primary_dark">#303F9F</color>
+    <color name="primary_light">#C5CAE9</color>
+    <color name="accent">#69f0ae</color>
+
+    <!-- Text -->
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+
+    <!-- Backgrounds -->
+    <color name="bg_dot_selected">#FFFFFF</color>
+    <color name="bg_dot_unselected">#2A2623</color>
+
+</resources>

@@ -1,0 +1,42 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
+    <!-- Drawer. -->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <!-- Tab layout -->
+    <style name="TrainUpTabLayout" parent="Widget.Design.TabLayout">
+        <item name="android:background">#80000000</item>
+        <item name="tabTextAppearance">@style/TrainUpTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/accent</item>
+    </style>
+
+    <style name="TrainUpTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <!-- Ripples -->
+    <style name="ImageBasicRippleStyle">
+        <item name="mrl_rippleOverlay">true</item>
+        <item name="mrl_rippleHover">true</item>
+        <item name="mrl_rippleDuration">300</item>
+    </style>
+
+    <style name="ImageLightRippleStyle" parent="ImageBasicRippleStyle">
+        <item name="mrl_rippleColor">#FFFFFF</item>
+    </style>
+
+    <style name="ImageDarkRippleStyle" parent="ImageBasicRippleStyle">
+        <item name="mrl_rippleColor">#000000</item>
+    </style>
+
+</resources>
