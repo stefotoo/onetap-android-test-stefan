@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.receiptbank.android.testapp.R;
 import com.receiptbank.android.testapp.models.CustomItem;
+import com.receiptbank.android.testapp.rest.model.Forecast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,21 +18,23 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
+public class WeatherAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
 
     // variables
     private Context mContext;
-    private List<CustomItem> mData;
+    private List<Forecast> mData;
+    private ForecastClickListener mCallback;
 
     // constructor
-    public CustomAdapter(Context context) {
+    public WeatherAdapter(Context context, ForecastClickListener callback) {
         this.mContext = context;
+        this.mCallback = callback;
 
         mData = new ArrayList<>();
     }
 
     // methods
-    public void addData(List<CustomItem> data, boolean notify) {
+    public void addData(List<Forecast> data, boolean notify) {
         int startCount = mData.size();
 
         mData.addAll(data);
@@ -54,7 +57,7 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
-    public List<CustomItem> getData() {
+    public List<Forecast> getData() {
         return mData;
     }
 
@@ -63,43 +66,59 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return mData.size();
     }
 
-    public CustomItem getItem(int position) {
+    public Forecast getItem(int position) {
         return mData.get(position);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new CustomHolder(LayoutInflater.from(mContext)
-                .inflate(R.layout.item_recyclerview, parent, false));
+        return new WeatherHolder(LayoutInflater.from(mContext)
+                .inflate(R.layout.item_forecast, parent, false));
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        CustomHolder viewHolder = (CustomHolder) holder;
-        CustomItem item = mData.get(position);
+        WeatherHolder viewHolder = (WeatherHolder) holder;
+        Forecast item = mData.get(position);
 
-        viewHolder.iv.setImageResource(item.getImageResId());
-        viewHolder.tvTitle.setText(item.getTitle());
-        viewHolder.tvContent.setText(item.getTitle());
+        viewHolder.tvTitle.setText(item.getWeatherList().get(0).getTitle());
+        viewHolder.tvContent.setText(item.getWeatherList().get(0).getDescription());
     }
 
     // inner classes
-    public class CustomHolder extends RecyclerView.ViewHolder {
+    public class WeatherHolder
+            extends
+            RecyclerView.ViewHolder
+            implements
+            View.OnClickListener {
 
         // UI variables
-        @Bind(R.id.iv_item_recyclerview)
+        @Bind(R.id.iv_item_forecast)
         ImageView iv;
-        @Bind(R.id.tv_item_recyclerview_title)
+        @Bind(R.id.tv_item_forecast_title)
         TextView tvTitle;
-        @Bind(R.id.tv_item_recyclerview_content)
+        @Bind(R.id.tv_item_forecast_content)
         TextView tvContent;
 
         // constructor
-        public CustomHolder(View itemView) {
+        public WeatherHolder(View itemView) {
             super(itemView);
 
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            if (mCallback != null) {
+                mCallback.onForecastClick(mData.get(getAdapterPosition()));
+            }
+        }
+    }
+
+    // interfaces
+    public interface ForecastClickListener {
+        void onForecastClick(Forecast forecast);
     }
 }
 

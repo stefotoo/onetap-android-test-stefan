@@ -52,20 +52,15 @@
                 app:layout_collapseMode="none"
                 style="@style/TrainUpTabLayout">
                 <android.support.design.widget.TabItem
-                    android:id="@+id/ti_recent"
+                    android:id="@+id/ti_5_days"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tab_recent"/>
+                    android:text="@string/tab_5_days"/>
                 <android.support.design.widget.TabItem
-                    android:id="@+id/ti_all"
+                    android:id="@+id/ti_16_days"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tab_all"/>
-                <android.support.design.widget.TabItem
-                    android:id="@+id/ti_processing"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tab_processing"/>
+                    android:text="@string/tab_16_days"/>
             </android.support.design.widget.TabLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>

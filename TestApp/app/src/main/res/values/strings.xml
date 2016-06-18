@@ -3,9 +3,8 @@
     <string name="app_name">TestApp</string>
 
     <!--Tabs-->
-    <string name="tab_recent">Recent</string>
-    <string name="tab_all">All</string>
-    <string name="tab_processing">Processing</string>
+    <string name="tab_5_days">5 days</string>
+    <string name="tab_16_days">16 days</string>
 
     <!--Controls-->
     <string name="tv_fragment_main_first_title">In 2016 you\'re on track to save</string>
@@ -14,5 +13,13 @@
     <string name="tv_fragment_main_second_subtitle">$7,402</string>
     <string name="tv_item_recyclerview_title">%s title</string>
     <string name="tv_item_recyclerview_content">%s content</string>
+
+    <!-- Toasts -->
+    <string name="toast_no_forecast_available">Sorry, we couldn\'t load a forecast for your location!</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_title_warning">Warning</string>
+    <string name="dialog_msg_location">You have to turn on your location in order to show you a forecast!</string>
+    <string name="dialog_btn_ok">OK, Got it!</string>
 
 </resources>

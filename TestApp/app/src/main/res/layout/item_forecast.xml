@@ -9,26 +9,26 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_8">
         <ImageView
-            android:id="@+id/iv_item_recyclerview"
+            android:id="@+id/iv_item_forecast"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_restore_black_24dp"/>
+            android:src="@drawable/ic_cloud_black_24dp"/>
         <TextView
-            android:id="@+id/tv_item_recyclerview_title"
+            android:id="@+id/tv_item_forecast_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/iv_item_recyclerview"
-            android:layout_toRightOf="@id/iv_item_recyclerview"
+            android:layout_alignTop="@id/iv_item_forecast"
+            android:layout_toRightOf="@id/iv_item_forecast"
             android:layout_marginLeft="@dimen/margin_8"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/text_size_5"
             android:text="Sample"/>
         <TextView
-            android:id="@+id/tv_item_recyclerview_content"
+            android:id="@+id/tv_item_forecast_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/iv_item_recyclerview"
-            android:layout_alignBottom="@id/iv_item_recyclerview"
+            android:layout_toRightOf="@id/iv_item_forecast"
+            android:layout_alignBottom="@id/iv_item_forecast"
             android:layout_marginLeft="@dimen/margin_8"
             android:textColor="@color/secondary_text"
             android:textSize="@dimen/text_size_4"
