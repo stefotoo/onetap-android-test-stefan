@@ -1,7 +1,9 @@
 package com.receiptbank.android.testapp.activities;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.location.Location;
+import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.location.LocationRequest;
+import com.gun0912.tedpermission.PermissionListener;
 import com.receiptbank.android.testapp.R;
 import com.receiptbank.android.testapp.TestApp;
 import com.receiptbank.android.testapp.adapters.WeatherAdapter;
@@ -25,6 +28,7 @@ import com.receiptbank.android.testapp.rest.model.Forecast;
 import com.receiptbank.android.testapp.rest.model.WeatherResponse;
 import com.receiptbank.android.testapp.ui.DividerItemDecoration;
 import com.receiptbank.android.testapp.ui.DotsView;
+import com.receiptbank.android.testapp.utils.PermissionUtil;
 import com.receiptbank.android.testapp.utils.Util;
 import com.rey.material.app.Dialog;
 import com.rey.material.app.SimpleDialog;
@@ -149,6 +153,30 @@ public class MainActivity
     }
 
     private void getCurrentLocation() {
+        if (PermissionUtil.hasLocationPermissions(this)) {
+            turnOnLocationRequests();
+        } else {
+            PermissionUtil.askLocationPermissions(
+                    this,
+                    new PermissionListener() {
+
+                        @Override
+                        public void onPermissionGranted() {
+                            turnOnLocationRequests();
+                        }
+
+                        @Override
+                        public void onPermissionDenied(ArrayList<String> arrayList) {
+                            Toast.makeText(MainActivity.this,
+                                    getString(R.string.permissions_location_denied),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+            );
+        }
+    }
+
+    private void turnOnLocationRequests() {
         LocationRequest request = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                 .setNumUpdates(5)
@@ -156,10 +184,10 @@ public class MainActivity
 
         ReactiveLocationProvider locationProvider = new ReactiveLocationProvider(this);
         locationProvider.getUpdatedLocation(request).subscribe(new Action1<Location>() {
-                @Override
-                public void call(Location location) {
-                    loadWeatherData(16, location);
-                }
+            @Override
+            public void call(Location location) {
+                loadWeatherData(16, location);
+            }
         });
     }
 

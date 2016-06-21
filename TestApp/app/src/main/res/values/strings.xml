@@ -22,4 +22,8 @@
     <string name="dialog_msg_location">You have to turn on your location in order to show you a forecast!</string>
     <string name="dialog_btn_ok">OK, Got it!</string>
 
+    <!-- Permission messages -->
+    <string name="permissions_location_rationale">We need your location in order to show you the weather forecast.</string>
+    <string name="permissions_location_denied">You won\'t be able to see the forecast!</string>
+
 </resources>
